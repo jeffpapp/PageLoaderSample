@@ -1,0 +1,18 @@
+﻿@page
+@model PageLoaderSample.Pages.Page2Model
+@{
+
+    var endpoint = HttpContext.GetEndpoint();
+
+    var metadata = endpoint.Metadata.GetMetadata<TestMetadata>();
+
+}
+
+@if (metadata != null)
+{
+    <h1>Has Custom Metadata</h1>
+}
+else
+{
+    <h1>Missing Custom Metadata</h1>
+}

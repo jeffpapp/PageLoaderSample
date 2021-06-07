@@ -1,0 +1,19 @@
+﻿@page
+@model PageLoaderSample.Pages.Page3Model
+@{
+
+    var endpoint = HttpContext.GetEndpoint();
+
+    // This should be missing because Page2 called PageLoader already so this endpoint is cached and PageLoaderMatcherPolicy will not create a new endpoint with the base metadata from calling MapRazorPages().WithMetadata()
+    var metadata = endpoint.Metadata.GetMetadata<TestMetadata>();
+
+}
+
+@if (metadata != null)
+{
+    <h1>Has Custom Metadata</h1>
+}
+else
+{
+    <h1>Missing Custom Metadata</h1>
+}
